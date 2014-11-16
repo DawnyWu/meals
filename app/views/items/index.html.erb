@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui grid">
+  <div class="row">
+    <div class="ui twelve wide column">
+    EAST:
+    <%= @items_east.first.name %>
+      <h1>Listing Items</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>已添加</th>
+            <th>Price</th>
+
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td id=item_num_<%= item.id %>><%= item_num(item) %></td>
+              <td><%= item.price %></td>
+              <td><%= link_to '添加到购物车', add_to_cart_path(:item_id=>item.id),method: :put,remote: true %></td>
+              <%#= image_tag 'yxrs.png' %> 
+              <%= link_to image_tag('yxrs.png',size: "250x200"),add_to_cart_path(:item_id=>item.id),method: :put,remote: true  %>
+            </tr>
+          <% end %>
+        </tbody>
+
+                <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td id=item_num_<%= item.id %>><%= item_num(item) %></td>
+              <td><%= item.price %></td>
+              <td><%= link_to '添加到购物车', add_to_cart_path(:item_id=>item.id),method: :put,remote: true %></td>
+              <%#= image_tag 'yxrs.png' %> 
+              <%= link_to image_tag('yxrs.png',size: "250x200"),add_to_cart_path(:item_id=>item.id),method: :put,remote: true  %>
+            </tr>
+          <% end %>
+        </tbody>
+
+                <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td id=item_num_<%= item.id %>><%= item_num(item) %></td>
+              <td><%= item.price %></td>
+              <td><%= link_to '添加到购物车', add_to_cart_path(:item_id=>item.id),method: :put,remote: true %></td>
+              <%#= image_tag 'yxrs.png' %> 
+              <%= link_to image_tag('yxrs.png',size: "250x200"),add_to_cart_path(:item_id=>item.id),method: :put,remote: true  %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Item', new_item_path %>
+    </div>
+    <div class="ui four wide column">
+     <div id="cart_to_go" class="pinned">
+      <table>
+  <tbody>
+    <% cart_items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td id=item_num_<%= item.id %>><%= item_num(item) %></td>
+        <td><%= item.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <%= cart_count %>个
+  <%= cart_sum %>元
+</table>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+     $(".pinned").pin();
+     });
+  </script>
+
+

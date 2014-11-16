@@ -1,0 +1,13 @@
+ <table>
+  <tbody>
+    <% cart_items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td id=item_num_<%= item.id %>><%= item_num(item) %></td>
+        <td><%= item.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <%= cart_count %>个
+  <%= cart_sum %>元
+</table>
